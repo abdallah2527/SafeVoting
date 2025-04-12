@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Safe Voting</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #fff;
+        }
+        .demo-section {
+            padding: 120px 0 60px;
+        }
+        .demo-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .demo-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-align: center;
+        }
+        .demo-subtitle {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .demo-description {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        .examples-title {
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 2rem 0 1.5rem;
+        }
+        .example-card {
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .example-card h3 {
+            color: #fff;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .example-card p {
+            color: #94a3b8;
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+        .poll-container {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+        .poll-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 12px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .poll-question {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        .poll-instruction {
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+        }
+        .poll-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .poll-option {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .poll-option:hover {
+            background: rgba(15, 23, 42, 0.7);
+        }
+        .poll-radio {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            appearance: none;
+            cursor: pointer;
+        }
+        .poll-radio:checked {
+            border-color: #6366f1;
+            background: #6366f1;
+        }
+        .poll-label {
+            color: #fff;
+            margin: 0;
+            cursor: pointer;
+        }
+        .poll-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .vote-btn {
+            background: #6366f1;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color 0.2s;
+        }
+        .vote-btn:hover {
+            background: #4f46e5;
+            color: #fff;
+        }
+        .results-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+        }
+        .results-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.25);
+            color: #fff;
+        }
+        .vote-count {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Safe Voting</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="create-poll.html">Create Poll</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="schedule-meeting.html">Schedule Meeting</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="demo.html">Demo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-primary" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-2" href="signup.html">Sign up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Demo Section -->
+    <section class="demo-section">
+        <div class="container">
+            <!-- Real-Time Polling Section -->
+            <h1 class="demo-title">Real-Time Polling</h1>
+            <p class="demo-subtitle">See how easy it is to conduct a poll with live results using StrawPoll.</p>
+
+            <div class="poll-container">
+                <div class="poll-card">
+                    <h2 class="poll-question">How easy is it to embed a StrawPoll?</h2>
+                    <p class="poll-instruction">Make a choice:</p>
+
+                    <div class="poll-options">
+                        <div class="poll-option">
+                            <input type="radio" name="poll-option" id="option1" class="poll-radio">
+                            <label for="option1" class="poll-label">Super easy</label>
+                        </div>
+                        <div class="poll-option">
+                            <input type="radio" name="poll-option" id="option2" class="poll-radio">
+                            <label for="option2" class="poll-label">Somewhat easy</label>
+                        </div>
+                        <div class="poll-option">
+                            <input type="radio" name="poll-option" id="option3" class="poll-radio">
+                            <label for="option3" class="poll-label">Moderate</label>
+                        </div>
+                        <div class="poll-option">
+                            <input type="radio" name="poll-option" id="option4" class="poll-radio">
+                            <label for="option4" class="poll-label">Quite difficult</label>
+                        </div>
+                        <div class="poll-option">
+                            <input type="radio" name="poll-option" id="option5" class="poll-radio">
+                            <label for="option5" class="poll-label">Very difficult</label>
+                        </div>
+                    </div>
+
+                    <div class="poll-actions">
+                        <button class="btn vote-btn">
+                            Vote <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="btn results-btn">
+                            <i class="fas fa-chart-bar"></i> Show results
+                        </button>
+                    </div>
+
+                    <div class="vote-count">162,350 votes</div>
+                </div>
+            </div>
+
+            <!-- Anonymous Polls Section -->
+            <div class="demo-card">
+                <h1 class="demo-title">Anonymous Polls</h1>
+                <p class="demo-description">
+                    Anonymous polls are mainly used to find out the majority opinion of a medium to large group. StrawPoll offers the
+                    setting options whether participants can submit one or more choices, or whether participants can add their own
+                    answers.
+                </p>
+
+                <h2 class="examples-title">Examples</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="example-card">
+                            <h3>Poll your own followers</h3>
+                            <p>A creator asking his/her followers about their preferences.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="example-card">
+                            <h3>Monthly awards</h3>
+                            <p>A company that wants to give back to its employees.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="example-card">
+                            <h3>Club elections</h3>
+                            <p>A sports club wants to elect a new position for the board of directors.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="example-card">
+                            <h3>Collective decision making</h3>
+                            <p>A discussion on a message board needs the opinion of the members.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group Polls Section -->
+            <div class="demo-card">
+                <h1 class="demo-title">Group Polls</h1>
+                <p class="demo-description">
+                    Group polls are just the thing when the opinion of the individual is important. It is activated by enabling the "Require
+                    participant names" option. We offer a number of different voting types, which are recommended depending on the
+                    number of participants in the poll. While the "participant grid" has proven itself with small groups, the "poll (default)"
+                    setting is clearer for larger groups. Great for sharing in your messenger like WhatsApp.
+                </p>
+
+                <h2 class="examples-title">Examples</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="example-card">
+                            <h3>Small group decision</h3>
+                            <p>A group of friends vote on weekend plans.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="example-card">
+                            <h3>Large group decision</h3>
+                            <p>A school class votes on their graduation lunch.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meeting Polls Section -->
+            <div class="demo-card">
+                <h1 class="demo-title">Meeting Polls</h1>
+                <p class="demo-description">
+                    Meeting polls (or scheduling polls) are basically group polls with the peculiarity that the answer options consist of
+                    dates or times. These are great for planning meetings or finding a common date with friends. The "participant grid" is
+                    always used, where custom limits can be set for individual options.
+                </p>
+
+                <h2 class="examples-title">Examples</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="example-card">
+                            <h3>Meeting poll</h3>
+                            <p>Find a date that suits everyone best.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="example-card">
+                            <h3>Custom option limits</h3>
+                            <p>An online course at various times, each with a limited number of slots.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!-- Footer -->
+ <footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <!-- Brand and Description -->
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <h2 class="footer-brand">Safe Voting</h2>
+                <p class="footer-description">Making it easy to create instant, real-time polls and surveys for free.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-reddit"></i></a>
+                </div>
+                <div class="language-selector mt-3">
+                    <button class="btn btn-dark">
+                        <i class="fas fa-globe me-2"></i> Choose Language
+                    </button>
+                </div>
+            </div>
+
+            <!-- Solutions -->
+            <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                <h3 class="footer-title">SOLUTIONS</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Poll Maker</a></li>
+                    <li><a href="#">Meeting Scheduler</a></li>
+                    <li><a href="#">Discord Bot</a></li>
+                    <li><a href="#">Poll API</a></li>
+                </ul>
+            </div>
+
+            <!-- Support -->
+            <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                <h3 class="footer-title">SUPPORT</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Guides</a></li>
+                    <li><a href="#">F.A.Q.</a></li>
+                    <li><a href="#">Integrations</a></li>
+                </ul>
+            </div>
+
+            <!-- Company -->
+            <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                <h3 class="footer-title">COMPANY</h3>
+                <ul class="footer-links">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Imprint</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal -->
+            <div class="col-6 col-lg-2">
+                <h3 class="footer-title">LEGAL</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom text-center mt-5">
+            <p>© 2025 Safe Voting. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

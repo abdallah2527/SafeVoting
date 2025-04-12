@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Poll - Safe Voting</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Safe Voting</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="create-poll.html">Create Poll</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="schedule-meeting.html">Schedule Meeting</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="demo.html">Demo</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="btn btn-outline-primary" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-2" href="signup.html">Sign up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Create Poll Form Section -->
+    <section class="create-poll-page">
+        <div class="container">
+            <div class="poll-form-container">
+                <h2 class="text-center mb-4">Create Your Poll</h2>
+                <form>
+                    <!-- Poll Title -->
+                    <div class="mb-4">
+                        <label class="form-label">Title</label>
+                        <input type="text" class="form-control" placeholder="Type your question here">
+                        <button type="button" class="btn btn-link mt-2 add-description-btn">
+                            <i class="fas fa-plus"></i> Add description or image
+                        </button>
+                    </div>
+
+                    <!-- Poll Options -->
+                    <div class="mb-4">
+                        <label class="form-label">Answer Options</label>
+                        <div class="option-list">
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" placeholder="Option 1">
+                                <button class="btn btn-outline-secondary" type="button">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" placeholder="Option 2">
+                                <button class="btn btn-outline-secondary" type="button">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-link add-option-btn">
+                            <i class="fas fa-plus"></i> Add another option
+                        </button>
+                        <button type="button" class="btn btn-link add-other-btn ms-3">
+                            <i class="fas fa-plus"></i> Add "Other"
+                        </button>
+                    </div>
+
+                    <!-- Settings -->
+                    <div class="settings-section">
+                        <h5 class="mb-4">Settings</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="multipleAnswers">
+                                    <label class="form-check-label" for="multipleAnswers">Allow multiple answers</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="duplicateCheck">
+                                    <label class="form-check-label" for="duplicateCheck">Check for duplicates</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="loginRequired">
+                                    <label class="form-check-label" for="loginRequired">Login required</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="hideResults">
+                                    <label class="form-check-label" for="hideResults">Hide results</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Show Advanced Settings -->
+                    <button type="button" class="btn btn-link show-advanced-btn mt-4">
+                        <i class="fas fa-cog"></i> Show advanced settings
+                    </button>
+
+                    <!-- Create Poll Button -->
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Create poll</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Getting Started Section -->
+    <section class="getting-started-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="subtitle">GETTING STARTED</span>
+                <h1 class="getting-started-title">How to use Safe Voting in three simple steps</h1>
+                <p class="getting-started-description">
+                    We have designed our free poll maker to be as easy and intuitive to use as possible.
+                    At the same time, we are constantly optimizing the workflow for creating simple, yet well-designed polls.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="step-box">
+                        <div class="step-number">1.</div>
+                        <h3>Fill out the form</h3>
+                        <p>Choose a title, add a set of answer options and choose your preferred settings.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-box">
+                        <div class="step-number">2.</div>
+                        <h3>Invite participants</h3>
+                        <p>Collect responses by sharing your poll link or embedding the poll on your site.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-box">
+                        <div class="step-number">3.</div>
+                        <h3>Get instant results</h3>
+                        <p>As soon as a vote is cast, the results are updated in real time and can be exported at any time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ready to Get Started Section -->
+    <section class="ready-to-start-section">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h2 class="ready-title">Ready to get started?<br>Make your first poll today.</h2>
+                </div>
+                <div class="d-flex gap-3">
+                    <a href="create-poll.html" class="btn btn-light">Create your poll</a>
+                    <a href="signup.html" class="btn btn-primary">Sign up →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!-- Footer -->
+     <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <!-- Brand and Description -->
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h2 class="footer-brand">Safe Voting</h2>
+                    <p class="footer-description">Making it easy to create instant, real-time polls and surveys for free.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-reddit"></i></a>
+                    </div>
+                    <div class="language-selector mt-3">
+                        <button class="btn btn-dark">
+                            <i class="fas fa-globe me-2"></i> Choose Language
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Solutions -->
+                <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                    <h3 class="footer-title">SOLUTIONS</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Poll Maker</a></li>
+                        <li><a href="#">Meeting Scheduler</a></li>
+                        <li><a href="#">Discord Bot</a></li>
+                        <li><a href="#">Poll API</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                    <h3 class="footer-title">SUPPORT</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Guides</a></li>
+                        <li><a href="#">F.A.Q.</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                    <h3 class="footer-title">COMPANY</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Imprint</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div class="col-6 col-lg-2">
+                    <h3 class="footer-title">LEGAL</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom text-center mt-5">
+                <p>© 2025 Safe Voting. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

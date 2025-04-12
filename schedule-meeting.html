@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Meeting - Safe Voting</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Safe Voting</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="create-poll.html">Create Poll</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="schedule-meeting.html">Schedule Meeting</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="demo.html">Demo</a>
+                    </li>
+                  
+                    <li class="nav-item">
+                        <a class="btn btn-outline-primary" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-2" href="signup.html">Sign up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  <!-- Schedule Meeting Form -->
+  <div class="schedule-meeting-page">
+    <div class="container">
+        <div class="schedule-meeting-container">
+            <h1 class="text-center mb-4">Schedule a Meeting</h1>
+            <p class="text-center text-muted mb-5">Complete the below fields to create your poll.</p>
+
+            <form>
+                <!-- Title -->
+                <div class="mb-4">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-control" placeholder="Type your question here">
+                    <button type="button" class="btn btn-link mt-2 add-description-btn">
+                        <i class="fas fa-plus"></i> Add description or image
+                    </button>
+                </div>
+
+                <!-- Calendar and Times -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Calendar -->
+                        <div class="calendar-container mb-4">
+                            <div class="calendar-header">
+                                <button type="button" class="btn btn-link calendar-nav"><i class="fas fa-chevron-left"></i></button>
+                                <h5 class="mb-0">April 2025</h5>
+                                <button type="button" class="btn btn-link calendar-nav"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            <div class="calendar-grid">
+                                <div class="calendar-weekdays">
+                                    <span>SUN</span>
+                                    <span>MON</span>
+                                    <span>TUE</span>
+                                    <span>WED</span>
+                                    <span>THU</span>
+                                    <span>FRI</span>
+                                    <span>SAT</span>
+                                </div>
+                                <div class="calendar-days">
+                                    <!-- Calendar days will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Times -->
+                        <div class="times-container">
+                            <h5>Dates & Times</h5>
+                            <p class="text-muted">Click on a date in the calendar to get started<br>or switch to text input.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings -->
+                <div class="settings-section mt-4">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="allowIfNeeded" checked>
+                                <label class="form-check-label" for="allowIfNeeded">Allow "If need be" answer</label>
+                            </div>
+                            <div class="form-check form-switch mt-3">
+                                <input class="form-check-input" type="checkbox" id="fixedTimeZone">
+                                <label class="form-check-label" for="fixedTimeZone">Fixed time zone</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="limitOptions">
+                                <label class="form-check-label" for="limitOptions">Limit selection to one option only</label>
+                            </div>
+                            <div class="form-check form-switch mt-3">
+                                <input class="form-check-input" type="checkbox" id="hideUnavailable">
+                                <label class="form-check-label" for="hideUnavailable">Hide unavailable options</label>
+                            </div>
+                            <div class="d-flex align-items-center mt-3">
+                                <span class="me-2">Custom option limits</span>
+                                <button type="button" class="btn btn-sm btn-secondary">Configure</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Show Advanced Settings -->
+                <button type="button" class="btn btn-link show-advanced-btn mt-4">
+                    <i class="fas fa-cog"></i> Show advanced settings
+                </button>
+
+                <!-- Create Poll Button -->
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">Create poll</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    <!-- Meeting Scheduler Intro -->
+    <section class="meeting-intro-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="subtitle">SAFE VOTING MEETINGS</span>
+                <h1 class="intro-title">Schedule meetings without any big effort</h1>
+                <p class="intro-description">
+                    We have customized our polling software to make meeting polls even easier to create.
+                    With a custom solution for entering date and time options and a custom polling interface, polling for appointments is a breeze.
+                </p>
+            </div>
+
+            <div class="row g-4 steps-container">
+                <div class="col-md-4">
+                    <div class="step-box">
+                        <div class="step-number">1.</div>
+                        <h3>Create a poll</h3>
+                        <p>Choose a title and in the next step, add your preferred dates & times.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-box">
+                        <div class="step-number">2.</div>
+                        <h3>Invite participants</h3>
+                        <p>Invite your participants via email or by sharing the link.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-box">
+                        <div class="step-number">3.</div>
+                        <h3>Get results</h3>
+                        <p>Collect your results in real-time and get notified when someone voted on your poll.</p>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </section>
+ <!-- Footer -->
+ <footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <!-- Brand and Description -->
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <h2 class="footer-brand">Safe Voting</h2>
+                <p class="footer-description">Making it easy to create instant, real-time polls and surveys for free.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-reddit"></i></a>
+                </div>
+                <div class="language-selector mt-3">
+                    <button class="btn btn-dark">
+                        <i class="fas fa-globe me-2"></i> Choose Language
+                    </button>
+                </div>
+            </div>
+
+            <!-- Solutions -->
+            <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                <h3 class="footer-title">SOLUTIONS</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Poll Maker</a></li>
+                    <li><a href="#">Meeting Scheduler</a></li>
+                    <li><a href="#">Discord Bot</a></li>
+                    <li><a href="#">Poll API</a></li>
+                </ul>
+            </div>
+
+            <!-- Support -->
+            <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                <h3 class="footer-title">SUPPORT</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Guides</a></li>
+                    <li><a href="#">F.A.Q.</a></li>
+                    <li><a href="#">Integrations</a></li>
+                </ul>
+            </div>
+
+            <!-- Company -->
+            <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                <h3 class="footer-title">COMPANY</h3>
+                <ul class="footer-links">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Imprint</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal -->
+            <div class="col-6 col-lg-2">
+                <h3 class="footer-title">LEGAL</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom text-center mt-5">
+            <p>© 2025 Safe Voting. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Calendar functionality
+        function populateCalendar() {
+            const calendarDays = document.querySelector('.calendar-days');
+            const days = [];
+            
+            // Previous month days
+            for (let i = 30; i <= 31; i++) {
+                days.push(`<div class="calendar-day disabled">${i}</div>`);
+            }
+            
+            // Current month days
+            for (let i = 1; i <= 30; i++) {
+                days.push(`<div class="calendar-day${i === 12 ? ' selected' : ''}">${i}</div>`);
+            }
+            
+            // Next month days
+            for (let i = 1; i <= 3; i++) {
+                days.push(`<div class="calendar-day disabled">${i}</div>`);
+            }
+            
+            calendarDays.innerHTML = days.join('');
+        }
+
+        // Initialize calendar when page loads
+        document.addEventListener('DOMContentLoaded', populateCalendar);
+    </script>
+</body>
+</html> 
